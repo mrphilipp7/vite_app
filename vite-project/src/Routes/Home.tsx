@@ -21,6 +21,7 @@ import {
   BriefcaseIcon,
   ArrowUpTrayIcon,
 } from "@heroicons/react/24/outline";
+import ServerError from "../Components/ServerError";
 
 const Home = () => {
   //pull data query
@@ -59,11 +60,12 @@ const Home = () => {
     return <Loading />;
   }
   if (isError) {
-    return <h1>Error</h1>;
+    return <ServerError />;
   }
 
   return (
-    <div className="justify-center items-center flex h-screen space-x-4">
+    <div className="justify-center items-center flex h-screen space-x-4 flex-col md:flex-row">
+      {/* Author */}
       <div className="flex space-x-8 min-w-96 p-2  my-2 backdrop-blur-xl bg-white/30 mt-2 text-center rounded-md border-white/10 border-2 shadow-sm shadow-gray-300">
         <table className="table-auto">
           <thead>
@@ -74,7 +76,6 @@ const Home = () => {
               </th>
             </tr>
           </thead>
-          {/* <hr /> */}
 
           <tbody className="text-left space-y-4">
             {data.map((data: { id: Key; author: string }) => (
@@ -84,26 +85,8 @@ const Home = () => {
             ))}
           </tbody>
         </table>
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th className="tracking-wide text-lg font-medium text-left">
-                Title
-                <div className="w-full h-1 bg-gray-300/30 rounded-md pb-1" />
-              </th>
-            </tr>
-          </thead>
-          {/* <hr /> */}
-          <tbody className="text-left space-y-4">
-            {data.map((data: { id: Key; title: string }) => (
-              <tr key={data.id}>
-                <td className="tracking-wide text-lg ">{data.title}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
-
+      {/* Form */}
       <Card>
         <div className="h-14 w-14 flex justify-center absolute top-2 right-0">
           <IconButton
@@ -143,6 +126,27 @@ const Home = () => {
           </Button>
         </form>
       </Card>
+
+      {/* Title  */}
+      <div className="flex space-x-8 min-w-96 p-2  my-2 backdrop-blur-xl bg-white/30 mt-2 text-center rounded-md border-white/10 border-2 shadow-sm shadow-gray-300">
+        <table className="table-auto">
+          <thead>
+            <tr>
+              <th className="tracking-wide text-lg font-medium text-left">
+                Title
+                <div className="w-full h-1 bg-gray-300/30 rounded-md pb-1" />
+              </th>
+            </tr>
+          </thead>
+          <tbody className="text-left space-y-4">
+            {data.map((data: { id: Key; title: string }) => (
+              <tr key={data.id}>
+                <td className="tracking-wide text-lg ">{data.title}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-
+import ServerError from "../Components/ServerError";
 const Error = () => {
   const error: any = useRouteError();
   return (
