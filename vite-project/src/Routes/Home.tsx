@@ -4,17 +4,9 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 import Card from "../Components/Card/Card";
 import SpeedDial from "../Components/SpeedDial";
 import Loading from "../Components/Loading";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { getAllPosts } from "../API/Posts";
-import {
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useState,
-} from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { getAllPosts, createPost } from "../API/Posts";
+import { Key, useState } from "react";
 import Input from "../Components/Input";
 import {
   UserIcon,
@@ -22,6 +14,7 @@ import {
   ArrowUpTrayIcon,
 } from "@heroicons/react/24/outline";
 import ServerError from "../Components/ServerError";
+import SnackBar from "../Components/SnackBar";
 
 const Home = () => {
   //pull data query
@@ -42,11 +35,23 @@ const Home = () => {
     setTitle(event.target.value);
   };
 
+  const [success, setSuccess] = useState(false);
+  const handleSuccessChange = () => {
+    setSuccess(false);
+  };
+
+  const [failure, setFailure] = useState(false);
+  const handleFailureChange = () => {
+    setFailure(false);
+  };
+
   //form submission event
   const onSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = { value: value, title: title };
-    console.log(data);
+    createPostMutation.mutate({
+      title: title,
+      author: value,
+    });
     resetForm();
   };
 
@@ -55,6 +60,22 @@ const Home = () => {
     setValue("");
     setTitle("");
   };
+
+  const createPostMutation = useMutation({
+    mutationFn: createPost,
+    onSuccess: () => {
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
+    },
+    onError: () => {
+      setFailure(true);
+      setTimeout(() => {
+        setFailure(false);
+      }, 2000);
+    },
+  });
 
   if (isLoading) {
     return <Loading />;
@@ -65,12 +86,28 @@ const Home = () => {
 
   return (
     <div className="justify-center items-center flex h-screen space-x-4 flex-col md:flex-row">
+      {success && (
+        <SnackBar
+          message={"Success"}
+          success={true}
+          onClick={handleSuccessChange}
+        />
+      )}
+      {failure && (
+        <SnackBar
+          message={"Failure"}
+          success={false}
+          onClick={handleFailureChange}
+        />
+      )}
+
+      {}
       {/* Author */}
       <div className="flex space-x-8 min-w-96 p-2  my-2 backdrop-blur-xl bg-white/30 mt-2 text-center rounded-md border-white/10 border-2 shadow-sm shadow-gray-300">
         <table className="table-auto">
           <thead>
             <tr>
-              <th className="tracking-wide text-lg font-medium text-left">
+              <th className="tracking-wide text-lg font-medium text-left text-white">
                 Author
                 <div className="w-full h-1 bg-gray-300/30 rounded-md pb-1" />
               </th>
@@ -80,7 +117,9 @@ const Home = () => {
           <tbody className="text-left space-y-4">
             {data.map((data: { id: Key; author: string }) => (
               <tr key={data.id}>
-                <td className="tracking-wide text-lg ">{data.author}</td>
+                <td className="tracking-wide text-lg text-white">
+                  {data.author}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -120,9 +159,9 @@ const Home = () => {
               <BriefcaseIcon />
             </Input>
           </div>
-          <Button>
+          <Button disabled={createPostMutation.isLoading}>
             <ArrowUpTrayIcon className="h-5 w-5 text-white mr-2" />
-            Submit
+            {createPostMutation.isLoading ? "Submitting" : "Submit"}
           </Button>
         </form>
       </Card>
@@ -132,7 +171,7 @@ const Home = () => {
         <table className="table-auto">
           <thead>
             <tr>
-              <th className="tracking-wide text-lg font-medium text-left">
+              <th className="tracking-wide text-lg font-medium text-left text-white">
                 Title
                 <div className="w-full h-1 bg-gray-300/30 rounded-md pb-1" />
               </th>
@@ -141,7 +180,9 @@ const Home = () => {
           <tbody className="text-left space-y-4">
             {data.map((data: { id: Key; title: string }) => (
               <tr key={data.id}>
-                <td className="tracking-wide text-lg ">{data.title}</td>
+                <td className="tracking-wide text-lg text-white">
+                  {data.title}
+                </td>
               </tr>
             ))}
           </tbody>

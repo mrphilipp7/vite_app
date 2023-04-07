@@ -1,13 +1,69 @@
 {
   "posts": [
-    { "id": 1, "title": "Programmer", "author": "Zach" },
-    { "id": 2, "title": "Car Sales", "author": "Haley" },
-    { "id": 3, "title": "Rat-Cat", "author": "Sammy" }
+    {
+      "id": "1",
+      "title": "Programmer",
+      "author": "Zach"
+    },
+    {
+      "id": "2",
+      "title": "Car Sales",
+      "author": "Haley"
+    },
+    {
+      "id": "3",
+      "title": "Rat-Cat",
+      "author": "Sammy"
+    },
+    {
+      "title": "Boss",
+      "author": "Dustin",
+      "id": "4"
+    },
+    {
+      "title": "Bobbin",
+      "author": "Throbbin",
+      "id": "5"
+    },
+    {
+      "title": "tawin",
+      "author": "marc",
+      "id": "85nutmR"
+    },
+    {
+      "title": "Guy",
+      "author": "New ",
+      "id": "bs8_BVi"
+    },
+    {
+      "title": "this",
+      "author": "taste",
+      "id": "we8Zwom"
+    },
+    {
+      "title": "d",
+      "author": "d",
+      "id": "F60ucD_"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "another comment", "postId": 2 },
-    { "id": 3, "body": "yet another comment", "postId": 2 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "another comment",
+      "postId": 2
+    },
+    {
+      "id": 3,
+      "body": "yet another comment",
+      "postId": 2
+    }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "typicode"
+  }
 }

@@ -13,7 +13,7 @@ const Button = ({
   return (
     <button
       {...atributes}
-      className={`flex items-center  border-white/40 border-2 p-2 rounded-md text-lg font-sans  shadow-gray-300 ${
+      className={`flex items-center text-white border-white/40 border-2 p-2 rounded-md text-lg font-sans  shadow-gray-300 ${
         disabled
           ? ""
           : "hover:bg-white/20 hover:border-white/20 active:bg-white/30 active:border-white/50 bg-transparent"

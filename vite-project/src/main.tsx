@@ -12,6 +12,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import AuthorDetails from "./Routes/AuthorDetails";
 //json-server --watch data/db.json --port 8000
 //npm run db-json
 const router = createBrowserRouter(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />} errorElement={<Error />}>
       <Route index element={<Home />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/contact/:postId" element={<AuthorDetails />} />
     </Route>
   )
 );

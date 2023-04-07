@@ -10,7 +10,7 @@ function App() {
             <li>
               <Link to="/">
                 <button className="py-1 rounded-md w-24 bg-transparent hover:bg-white/20 active:bg-white/30">
-                  <p className="text-lg font-medium tracking-wide font-sans">
+                  <p className="text-lg font-medium tracking-wide font-sans text-white">
                     Home
                   </p>
                 </button>
@@ -18,7 +18,7 @@ function App() {
             </li>
             <li>
               <Link to="/contact">
-                <button className="py-1 rounded-md w-24 bg-transparent hover:bg-white/20 active:bg-white/30">
+                <button className="text-white py-1 rounded-md w-24 bg-transparent hover:bg-white/20 active:bg-white/30">
                   <p className="text-lg font-medium tracking-wide font-sans">
                     Contact
                   </p>
