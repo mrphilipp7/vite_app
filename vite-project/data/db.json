@@ -1,0 +1,13 @@
+{
+  "posts": [
+    { "id": 1, "title": "Programmer", "author": "Zach" },
+    { "id": 2, "title": "Car Sales", "author": "Haley" },
+    { "id": 3, "title": "Rat-Cat", "author": "Sammy" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 },
+    { "id": 2, "body": "another comment", "postId": 2 },
+    { "id": 3, "body": "yet another comment", "postId": 2 }
+  ],
+  "profile": { "name": "typicode" }
+}
