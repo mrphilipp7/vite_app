@@ -9,8 +9,8 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 */
 
 type Props = {
-  checked: boolean;
-  setChecked: React.ChangeEventHandler<HTMLInputElement>;
+  checked?: boolean | undefined;
+  setChecked?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 const CheckBox = ({ checked = false, setChecked }: Props) => {
@@ -20,8 +20,8 @@ const CheckBox = ({ checked = false, setChecked }: Props) => {
         type="checkbox"
         className={`w-7 h-7  border-2 ${
           checked
-            ? "bg-white border-gray-400"
-            : "bg-light-green border-light-green "
+            ? "bg-dark-blue border-dark-blue "
+            : "bg-white border-gray-400"
         } relative appearance-none rounded-md cursor-pointer`}
         checked={checked}
         onChange={setChecked}
@@ -29,7 +29,7 @@ const CheckBox = ({ checked = false, setChecked }: Props) => {
 
       <CheckIcon
         className={`absolute top-0.5 left-0.5 h-6 w-6 text-white stroke-[4px] pointer-events-none  ${
-          checked ? "scale-0 " : "scale-1"
+          checked ? "scale-1 " : "scale-0"
         }`}
       />
     </div>

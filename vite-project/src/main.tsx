@@ -5,6 +5,7 @@ import "./index.css";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact";
 import Error from "./Routes/Error";
+import Website from "./Routes/Website";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/contact/:postId" element={<AuthorDetails />} />
+      <Route path="/warehouse" element={<Website />} />
     </Route>
   )
 );

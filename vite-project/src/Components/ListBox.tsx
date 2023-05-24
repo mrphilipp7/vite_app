@@ -19,7 +19,7 @@ type Props = {
   placeHolder: string;
   apps: Array<Object>;
   keyValue: number;
-  setSelected: (value: any) => void;
+  setSelected?: (value: any) => void;
   selected: object | string;
 };
 
@@ -69,7 +69,11 @@ const ListBox = ({
               selected != "" ? "" : "hidden"
             }`}
             onClick={() => {
-              setSelected("");
+              if (setSelected != undefined) {
+                setSelected("");
+              } else {
+                console.log("error with setSelected");
+              }
             }}
           >
             <XMarkIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />

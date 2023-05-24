@@ -1,4 +1,3 @@
-import Button from "../Components/Button";
 import IconButton from "../Components/IconButton";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import Card from "../Components/Card/Card";
@@ -15,8 +14,13 @@ import {
 } from "@heroicons/react/24/outline";
 import ServerError from "../Components/ServerError";
 import SnackBar from "../Components/SnackBar";
-
+import CheckBox from "../Components/CheckBox";
 const Home = () => {
+  const [checked, setChecked] = useState(false);
+  const handleCheckChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(!checked);
+  };
+
   //pull data query
   const { isLoading, isError, data } = useQuery({
     queryKey: ["getAllPosts"],
@@ -44,6 +48,8 @@ const Home = () => {
   const handleFailureChange = () => {
     setFailure(false);
   };
+
+  //form setup
 
   //form submission event
   const onSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
@@ -86,6 +92,8 @@ const Home = () => {
 
   return (
     <div className="justify-center items-center flex h-screen space-x-4 flex-col md:flex-row">
+      <CheckBox checked={checked} setChecked={handleCheckChange} />
+      <p>{checked ? "asdf" : "fdsa"}</p>
       {success && (
         <SnackBar
           message={"Success"}
@@ -159,10 +167,6 @@ const Home = () => {
               <BriefcaseIcon />
             </Input>
           </div>
-          <Button disabled={createPostMutation.isLoading}>
-            <ArrowUpTrayIcon className="h-5 w-5 text-white mr-2" />
-            {createPostMutation.isLoading ? "Submitting" : "Submit"}
-          </Button>
         </form>
       </Card>
 

@@ -4,7 +4,7 @@ function App() {
   //entry for application. Will Always show header
   return (
     <>
-      <header className="flex justify-center">
+      {/* <header className="flex justify-center">
         <nav className="min-w-96 p-2  my-2 backdrop-blur-xl bg-white/30 mt-2 text-center rounded-md border-white/10 border-2 shadow-sm shadow-gray-300">
           <ul className="flex space-x-4 justify-center">
             <li>
@@ -27,8 +27,15 @@ function App() {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
       <Outlet />
+      {/* <footer className="">
+        <div className="flex justify-center">
+          <p className="text-white text-sm font-medium tracking-wide font-sans">
+            Copyright &copy; 2021
+          </p>
+        </div>
+      </footer> */}
     </>
   );
 }

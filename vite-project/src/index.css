@@ -7,7 +7,8 @@
   color-scheme: light dark;
   /* fallback for old browsers */
   background-color: black;
-background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+  /* //#13547a */
+  background-image: linear-gradient(15deg, #80d0c7 0%, #80d0c7 100%);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
