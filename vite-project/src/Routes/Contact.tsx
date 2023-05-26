@@ -32,6 +32,7 @@ import CustomTabBtn from "../Components/CustomTabBtn";
 import SwitchInput from "../Components/SwitchInput";
 import CheckBox from "../Components/CheckBox";
 import IconButton from "../Components/IconButton";
+import RefInput from "../Components/RefInput";
 
 const titleVal = "Select something";
 
@@ -225,7 +226,7 @@ const Contact = () => {
           </TabPanels>
         </TabList>
       </TabGroup> */}
-      <ListBox
+      {/* <ListBox
         value={selected}
         onChange={setSelected}
         isDefault={selected != people[0]}
@@ -245,15 +246,15 @@ const Contact = () => {
             />
           ))}
         </ListBoxOptions>
-      </ListBox>
-      <Input
+      </ListBox> */}
+      {/* <Input
         value={value}
         changeVal={handleValChange}
         placeHolder={"Type here"}
         children={<BookmarkIcon />}
-      />
+      /> */}
 
-      <button className="p-2 bg-dark-blue text-lg tracking-wide font-semibold text-white rounded-lg border-2 border-dark-blue shadow-sm hover:bg-dark-blue/90 hover:border-dark-blue/90 hover:shadow-black/50 shadow-black/20 active:shadow-black/30 active:bg-dark-blue active:border-dark-blue">
+      {/* <button className="p-2 bg-dark-blue text-lg tracking-wide font-semibold text-white rounded-lg border-2 border-dark-blue shadow-sm hover:bg-dark-blue/90 hover:border-dark-blue/90 hover:shadow-black/50 shadow-black/20 active:shadow-black/30 active:bg-dark-blue active:border-dark-blue">
         click me
       </button>
 
@@ -263,13 +264,53 @@ const Contact = () => {
 
       <button className="p-2 bg-transparent text-lg tracking-wide font-semibold text-dark-blue rounded-lg border-2 border-transparent hover:shadow-black/10 hover:shadow-sm active:shadow-sm active:shadow-black/30 active:bg-dark-blue/10">
         click me
-      </button>
-      <div className="p-4 m-4 bg-white rounded-lg shadow-sm shadow-black/50">
+      </button> */}
+      {/* <div className="p-4 m-4 bg-white rounded-lg shadow-sm shadow-black/50">
         <p className="text-dark-blue">Here is my card</p>
-      </div>
-      <SwitchInput enabled={enabled} setEnabled={setEnabled} />
+      </div> */}
+      {/* <SwitchInput enabled={enabled} setEnabled={setEnabled} />
       <CheckBox checked={checked} setChecked={handleCheckChange} />
-      <IconButton toolTip="home" children={<HomeIcon />} />
+      <IconButton toolTip="home" children={<HomeIcon />} /> */}
+
+      <form
+        className="flex flex-col gap-2"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <div className="flex flex-col">
+          <label className="text-dark-blue font-semibold pl-1">Username</label>
+          <input
+            type="email"
+            required
+            className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80 "
+          />
+        </div>
+        <div className="flex flex-col">
+          <label className="text-dark-blue font-semibold pl-1">Password</label>
+          <input
+            type="password"
+            required
+            className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80  "
+          />
+        </div>
+
+        <div className="flex justify-center items-center space-x-2">
+          <input type="checkbox" className="" />
+          <span>
+            Agree to{" "}
+            <a href="#" className="text-blue-800">
+              terms of service
+            </a>
+          </span>
+        </div>
+
+        <input
+          type="submit"
+          value="Submit"
+          className="bg-dark-blue rounded-lg p-2 text-white cursor-pointer shadow-sm shadow-black hover:bg-dark-blue/90 active:bg-dark-blue mt-5"
+        />
+      </form>
     </div>
   );
 };
