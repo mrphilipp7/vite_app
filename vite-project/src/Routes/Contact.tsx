@@ -271,46 +271,44 @@ const Contact = () => {
       {/* <SwitchInput enabled={enabled} setEnabled={setEnabled} />
       <CheckBox checked={checked} setChecked={handleCheckChange} />
       <IconButton toolTip="home" children={<HomeIcon />} /> */}
+      <fieldset className="bg-gray-600/20 backdrop-blur-lg p-4 rounded-lg border-2 border-white/10 shadow-sm shadow-gray-300">
+        <legend className="mx-auto mb-2 text-3xl font-bold text-dark-blue transform -translate-y-6">
+          Login
+        </legend>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <div className="flex flex-col">
+            <label className="text-dark-blue font-semibold pl-1">
+              Username
+            </label>
+            <input
+              type="email"
+              required
+              className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80 "
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-dark-blue font-semibold pl-1">
+              Password
+            </label>
+            <input
+              type="password"
+              required
+              className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80  "
+            />
+          </div>
 
-      <form
-        className="flex flex-col gap-2"
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <div className="flex flex-col">
-          <label className="text-dark-blue font-semibold pl-1">Username</label>
           <input
-            type="email"
-            required
-            className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80 "
+            type="submit"
+            value="Submit"
+            className="bg-dark-blue rounded-lg p-2 text-white cursor-pointer shadow-sm shadow-black hover:bg-dark-blue/90 active:bg-dark-blue mt-4"
           />
-        </div>
-        <div className="flex flex-col">
-          <label className="text-dark-blue font-semibold pl-1">Password</label>
-          <input
-            type="password"
-            required
-            className="p-2 rounded-lg outline-none focus:ring-2 focus:ring-dark-blue shadow-sm  shadow-black/80  "
-          />
-        </div>
-
-        <div className="flex justify-center items-center space-x-2">
-          <input type="checkbox" className="" />
-          <span>
-            Agree to{" "}
-            <a href="#" className="text-blue-800">
-              terms of service
-            </a>
-          </span>
-        </div>
-
-        <input
-          type="submit"
-          value="Submit"
-          className="bg-dark-blue rounded-lg p-2 text-white cursor-pointer shadow-sm shadow-black hover:bg-dark-blue/90 active:bg-dark-blue mt-5"
-        />
-      </form>
+        </form>
+      </fieldset>
     </div>
   );
 };
